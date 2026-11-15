@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca Técnica EBL · Manuel Rodríguez Prieto (Edición 2026)</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #050912; color: #e8eef8; font-family: "IBM Plex Sans", sans-serif; line-height: 1.5;
+      background-image: radial-gradient(circle, rgba(148,163,184,.14) 1px, transparent 1.4px); background-size: 24px 24px;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header { position: sticky; top: 0; z-index: 40; background: rgba(5,9,18,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #1e293b; padding: 14px 0; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 1.15rem; color: #fff; }
+    .sub { font-family: "IBM Plex Mono", monospace; font-size: .7rem; color: #7387a6; text-transform: uppercase; letter-spacing: .1em; }
+    .search { background: #0b1322; border: 1px solid #334155; border-radius: 10px; padding: 10px 14px; color: #fff; width: 100%; max-width: 320px; font-size: .9rem; }
+    .search:focus { outline: none; border-color: #22d3ee; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 10px; font-family: "Archivo", sans-serif; font-weight: 700; font-size: .92rem; text-decoration: none; border: none; cursor: pointer; transition: .2s; }
+    .btn-buy { background: linear-gradient(180deg, #ff9a3d, #f97316); color: #1a0b00; }
+    .btn-cyan { background: linear-gradient(180deg, #67e8f9, #22d3ee); color: #03222b; }
+    .btn-ghost { background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.45); color: #7ee7f8; }
+    .btn-wa { background: rgba(37,211,102,.15); border: 1px solid rgba(37,211,102,.45); color: #4ee88a; width: 100%; }
+    .btn:hover { filter: brightness(1.08); }
+    .hero { text-align: center; padding: 48px 0 36px; }
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .72rem; color: #7ee7f8; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 12px; }
+    h1 { font-family: "Archivo", sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; color: #fff; max-width: 820px; margin: 0 auto 16px; }
+    h1 span { color: #22d3ee; }
+    .hero p { color: #a9b8cf; max-width: 680px; margin: 0 auto 24px; }
+    .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .pack { background: linear-gradient(180deg, #0f192c, #080e1a); border: 1px solid rgba(34,211,238,.45); border-radius: 20px; padding: 28px; margin-bottom: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+    .pack-cover { flex: 1 1 280px; max-width: 340px; }
+    .pack-cover img { width: 100%; border-radius: 14px; border: 1px solid rgba(34,211,238,.35); box-shadow: 0 18px 40px -12px rgba(0,0,0,.85); display: block; }
+    .pack-info { flex: 1 1 380px; }
+    .badge { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .7rem; padding: 4px 10px; border-radius: 99px; background: rgba(249,115,22,.16); border: 1px solid rgba(249,115,22,.45); color: #fdba74; text-transform: uppercase; margin-bottom: 10px; }
+    .pack h2 { font-family: "Archivo", sans-serif; font-size: 1.55rem; color: #fff; margin-bottom: 10px; }
+    .pack ul { list-style: none; display: grid; gap: 8px; margin-top: 14px; font-size: .88rem; color: #dbeafe; }
+    .pack-box { flex: 1 1 250px; max-width: 300px; background: #050912; border: 1px solid #334155; border-radius: 16px; padding: 22px; }
+    .old { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: #94a3b8; text-decoration: line-through; }
+    .price-big { font-family: "Archivo", sans-serif; font-size: 2.2rem; font-weight: 800; color: #fff; margin: 6px 0 4px; }
+    .price-big span { font-size: .85rem; color: #22d3ee; font-family: "IBM Plex Mono", monospace; }
+    .sec-title { font-family: "Archivo", sans-serif; font-size: 1.7rem; color: #fff; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-bottom: 60px; }
+    .card { background: linear-gradient(180deg, #0f192c, #080e1a); border: 1px solid #1e293b; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+    .book-img { width: 100%; height: 290px; object-fit: contain; background: #050912; border-radius: 12px; border: 1px solid #1e293b; margin-bottom: 14px; padding: 6px; }
+    .card h3 { font-family: "Archivo", sans-serif; font-size: 1.2rem; color: #fff; margin: 8px 0; }
+    .card p { font-size: .88rem; color: #a9b8cf; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+    .tags span { font-family: "IBM Plex Mono", monospace; font-size: .68rem; background: #0b1322; border: 1px solid #334155; padding: 3px 8px; border-radius: 6px; color: #cbd5e1; }
+    .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #1e293b; padding-top: 16px; }
+    .card-price { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 1.05rem; color: #fff; }
+    footer { border-top: 1px solid #1e293b; padding: 28px 20px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: #7387a6; }
+    .modal { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: 16px; background: rgba(5,9,18,.88); }
+    .modal.activo { display: grid; }
+    .modal-box { background: #0f192c; border: 1px solid #334155; border-radius: 18px; padding: 24px; width: 100%; max-width: 420px; position: relative; }
+    .close { position: absolute; right: 16px; top: 14px; background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; }
+    .msg { margin-top: 12px; padding: 12px; border-radius: 10px; font-size: .82rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div>
+        <div class="brand">Biblioteca Técnica EBL</div>
+        <div class="sub">Manuel Rodríguez Prieto · Edición 2026</div>
+      </div>
+      <input id="buscador" class="search" type="search" placeholder="Buscar Smart TV, Placas, SMPS, LTspice..." oninput="filtrar()">
+      <button class="btn btn-ghost" onclick="abrirModal('modal-codigo')">Tengo mi código</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Ingeniería Práctica · Edición 2026</div>
+      <h1>Deja de cambiar tarjetas a ciegas y domina la <span>reparación a nivel de componente</span></h1>
+      <p>Colección técnica creada por <strong>Manuel Rodríguez Prieto</strong>. Lleva las 4 obras en el <strong>Pack Completo 4 en 1</strong> o adquiere cada manual por separado con descarga directa en <code>.RAR</code>.</p>
+      <div class="hero-btns">
+        <a href="#pack" class="btn btn-buy">Ver Pack Completo 4 en 1 (Ahorra 46%)</a>
+        <a href="#catalogo" class="btn btn-ghost">Ver libros por separado</a>
+      </div>
+    </section>
+
+    <section id="pack" class="pack">
+      <div class="pack-cover">
+        <img src="portada 5.jpg" alt="Colección Completa 4 en 1 - Edición 2026">
+      </div>
+      <div class="pack-info">
+        <span class="badge">Oferta Lanzamiento · Ahorra 46%</span>
+        <h2>Biblioteca del Técnico Especialista (Pack Completo 4 en 1)</h2>
+        <p style="color:#a9b8cf;font-size:.92rem">Las cuatro guías definitivas de laboratorio en un solo paquete para tu banco de trabajo:</p>
+        <ul>
+          <li>✓ <strong>Libro 1:</strong> Reparación Smart TV (UHD, OLED, Mini-LED, UART, eMMC)</li>
+          <li>✓ <strong>Libro 2:</strong> Placas Madre PC y Notebooks (BoardView, BIOS, Región ME, BGA)</li>
+          <li>✓ <strong>Libro 3:</strong> El Arte del Diagnóstico Electrónico (Tarjetas Multimarca)</li>
+          <li>✓ <strong>Libro 4:</strong> Electrónica Desde Cero (32 Capítulos + 199 Ejercicios)</li>
+        </ul>
+      </div>
+      <div class="pack-box">
+        <div class="old">Valor individual: $93.470 CLP / $104 USD</div>
+        <div class="price-big">$49.990 <span>CLP</span></div>
+        <p style="font-size:.8rem;color:#cbd5e1;margin-bottom:16px">Internacional: <strong>$55 USD</strong> · Pago único</p>
+        <button class="btn btn-buy" style="width:100%;margin-bottom:10px" onclick="comprar('Biblioteca del Técnico Especialista (Pack 4 en 1)', '$49.990 CLP / $55 USD')">Comprar Pack 4 en 1</button>
+        <button class="btn btn-ghost" style="width:100%;font-size:.8rem" onclick="abrirModal('modal-codigo')">Ya compré · Descargar archivo .RAR</button>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <h2 class="sec-title">Manuales técnicos por separado (4 Libros)</h2>
+      <div class="grid">
+        <article class="card libro">
+          <div>
+            <img class="book-img" src="portada 3.png" alt="Portada Técnico Reparación Smart TV">
+            <span class="badge" style="background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:#7ee7f8">LIBRO 01 · NIVEL LABORATORIO</span>
+            <h3>Libro Técnico de Reparación Smart TV</h3>
+            <p>Metalurgia SMD (SAC305), ingeniería inversa sin diagramas, fuentes SMPS/PFC (390V), logs UART, programación de memorias SPI/eMMC, Método Cinta Kapton para paneles UHD y tecnología OLED/QLED/Mini-LED.</p>
+
+            <div class="tags"><span>Smart TV</span><span>SMPS/PFC</span><span>Logs UART</span><span>SPI/eMMC</span><span>Cinta Kapton</span><span>OLED</span></div>
+          </div>
+          <div class="card-foot">
+            <span class="card-price">$34.990 CLP / $45 USD</span>
+            <button class="btn btn-cyan" onclick="comprar('Libro Técnico de Reparación Smart TV', '$34.990 CLP / $45 USD')">Comprar libro</button>
+          </div>
+        </article>
+
+        <article class="card libro">
+          <div>
+            <img class="book-img" src="portada 1.png" alt="Manual de Ingeniería y Reparación de Placas Madre">
+            <span class="badge" style="background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:#7ee7f8">LIBRO 02 · ESQUEMAS Y BGA</span>
+            <h3>Manual de Ingeniería y Reparación de Placas Madre PC y Notebooks</h3>
+            <p>Lectura de planos esquemáticos y BoardView, etapas Charger (19V), fuentes Always, secuencia de encendido (EC/PCH), VRM multifase, programación BIOS (3.3V/1.8V), Región ME Intel, flasheo EC y microsoldadura BGA.</p>
+            <div class="tags"><span>Placas Madre</span><span>BoardView</span><span>BIOS / Región ME</span><span>EC/PCH</span><span>BGA</span></div>
+          </div>
+          <div class="card-foot">
+            <span class="card-price">$18.990 CLP / $19 USD</span>
+            <button class="btn btn-cyan" onclick="comprar('Manual de Ingeniería y Reparación de Placas Madre PC y Notebooks', '$18.990 CLP / $19 USD')">Comprar libro</button>
+          </div>
+        </article>
+
+        <article class="card libro">
+          <div>
+            <img class="book-img" src="portada 2.png" alt="El Arte del Diagnóstico Electrónico">
+            <span class="badge" style="background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:#7ee7f8">LIBRO 03 · LÍNEA BLANCA Y CLIMA</span>
+            <h3>El Arte del Diagnóstico Electrónico — Tarjetas Multimarca</h3>
+            <p>Método científico en 4 pasos, uso de lámpara en serie, mediciones en frío y caliente (HOT GND vs. COLD GND), cacería de cortocircuitos con métodos térmicos (alcohol, rosin, papel térmico) en lavadoras, A/C y refrigeradores.</p>
+            <div class="tags"><span>Tarjetas Multimarca</span><span>Lámpara serie</span><span>HOT/COLD GND</span><span>Métodos térmicos</span></div>
+          </div>
+          <div class="card-foot">
+            <span class="card-price">$19.990 CLP / $20 USD</span>
+            <button class="btn btn-cyan" onclick="comprar('El Arte del Diagnóstico Electrónico — Tarjetas Multimarca', '$19.990 CLP / $20 USD')">Comprar libro</button>
+          </div>
+        </article>
+
+        <article class="card libro">
+          <div>
+            <img class="book-img" src="portada 4.jpg" alt="Electrónica Desde Cero">
+            <span class="badge" style="background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:#7ee7f8">LIBRO 04 · 32 CAPÍTULOS + 199 EJERCICIOS</span>
+            <h3>Electrónica Desde Cero — Curso Completo</h3>
+            <p>32 capítulos desde Ley de Ohm hasta Transformada de Laplace, 17 prácticas de simulación en LTspice ("Paso 0") y 199 ejercicios resueltos paso a paso para dominar el análisis de circuitos.</p>
+            <div class="tags"><span>Desde Cero</span><span>Ley de Ohm</span><span>Laplace</span><span>LTspice</span><span>199 Ejercicios</span></div>
+          </div>
+          <div class="card-foot">
+            <span class="card-price">$19.500 CLP / $20 USD</span>
+            <button class="btn btn-cyan" onclick="comprar('Electrónica Desde Cero — Curso Completo', '$19.500 CLP / $20 USD')">Comprar libro</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Biblioteca Técnica EBL · Autor: Manuel Rodríguez Prieto · Edición 2026 · WhatsApp +56 9 9926 3949</footer>
+
+  <div id="modal-codigo" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="cerrarModales()">✕</button>
+      <div class="eyebrow">Zona de Descargas</div>
+      <h2 style="font-family:'Archivo',sans-serif;color:#fff;margin-bottom:8px">Ingresar código de acceso</h2>
+      <p style="font-size:.88rem;color:#a9b8cf;margin-bottom:14px">Escribe el código que recibiste tras tu compra para descargar tu archivo <code>.RAR</code>:</p>
+      <input id="inp-code" class="search" style="max-width:100%;text-transform:uppercase;margin-bottom:12px" placeholder="Ej: EBL-PACK-2026">
+      <button class="btn btn-cyan" style="width:100%" onclick="validar()">Validar y habilitar descarga</button>
+      <div id="msg-code" class="msg"></div>
+    </div>
+  </div>
+
+  <div id="modal-compra" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="cerrarModales()">✕</button>
+      <div class="eyebrow">Adquisición Directa</div>
+      <h2 style="font-family:'Archivo',sans-serif;color:#fff;margin-bottom:10px">Solicitar acceso inmediato</h2>
+      <div style="background:#050912;border:1px solid #334155;border-radius:12px;padding:14px;margin-bottom:14px">
+        <div id="c-nombre" style="font-family:'Archivo',sans-serif;font-weight:700;color:#fff"></div>
+        <div id="c-precio" style="font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:#22d3ee;margin-top:4px"></div>
+      </div>
+      <p style="font-size:.88rem;color:#a9b8cf;margin-bottom:16px">Escríbeme por WhatsApp para coordinar el pago y enviarte tu código de descarga más la contraseña WinRAR.</p>
+      <a id="btn-wa" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-wa">Comprar por WhatsApp (+56 9 9926 3949)</a>
+    </div>
+  </div>
+
+  <script>
+    const CODIGOS = {
+      "EBL-PACK-2026": { nombre: "Biblioteca del Técnico Especialista (Pack 4 en 1).rar", url: "https://google.com" },
+      "EBL-SMARTTV-2026": { nombre: "Tecnico-Reparacion-Smart-TV-2026.rar", url: "https://google.com" },
+      "EBL-PLACAS-2026": { nombre: "Manual-Ingenieria-Reparacion-Placas-Madre.rar", url: "https://google.com" },
+      "EBL-DIAG-2026": { nombre: "El-Arte-Del-Diagnostico-Electronico.rar", url: "https://google.com" },
+      "EBL-CERO-2026": { nombre: "Electronica-Desde-Cero-Curso-Completo.rar", url: "https://google.com" }
+    };
+    function filtrar() {
+      const q = document.getElementById("buscador").value.toLowerCase();
+      document.querySelectorAll(".libro").forEach(c => { c.style.display = c.innerText.toLowerCase().includes(q) ? "flex" : "none"; });
+    }
+    function abrirModal(id) { document.getElementById(id).classList.add("activo"); }
+    function cerrarModales() { document.querySelectorAll(".modal").forEach(m => m.classList.remove("activo")); }
+    function comprar(n, p) {
+      document.getElementById("c-nombre").innerText = n;
+      document.getElementById("c-precio").innerText = p;
+      document.getElementById("btn-wa").href = "https://wa.me" + encodeURIComponent("Hola Manuel, quiero adquirir \"" + n + "\" (" + p + ") y recibir mi código de descarga y contraseña WinRAR.");
+      abrirModal("modal-compra");
+    }
+    function validar() {
+      const c = document.getElementById("inp-code").value.trim().toUpperCase(), m = document.getElementById("msg-code"), a = CODIGOS[c];
+      m.style.display = "block";
+      if (a) {
+        m.style.background = "rgba(34,211,238,.12)"; m.style.border = "1px solid #22d3ee"; m.style.color = "#e0f2fe";
+        m.innerHTML = "✓ Código verificado: <strong>" + a.nombre + "</strong><br><br><a href='" + a.url + "' target='_blank' class='btn btn-cyan' style='width:100%'>Descargar desde Google Drive</a>";
+      } else {
+        m.style.background = "rgba(239,68,68,.15)"; m.style.border = "1px solid #ef4444"; m.style.color = "#fecaca";
+        m.innerText = "Código no válido. Verifica las letras o solicítalo por WhatsApp.";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
