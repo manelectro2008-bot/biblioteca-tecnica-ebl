@@ -107,7 +107,6 @@
         <button class="btn btn-ghost" style="width:100%;font-size:.8rem" onclick="abrirModal('modal-codigo')">Ya compré · Descargar archivo .RAR</button>
       </div>
     </section>
-
     <section id="catalogo">
       <h2 class="sec-title">Manuales técnicos por separado (4 Libros)</h2>
       <div class="grid">
@@ -117,7 +116,6 @@
             <span class="badge" style="background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:#7ee7f8">LIBRO 01 · NIVEL LABORATORIO</span>
             <h3>Libro Técnico de Reparación Smart TV</h3>
             <p>Metalurgia SMD (SAC305), ingeniería inversa sin diagramas, fuentes SMPS/PFC (390V), logs UART, programación de memorias SPI/eMMC, Método Cinta Kapton para paneles UHD y tecnología OLED/QLED/Mini-LED.</p>
-
             <div class="tags"><span>Smart TV</span><span>SMPS/PFC</span><span>Logs UART</span><span>SPI/eMMC</span><span>Cinta Kapton</span><span>OLED</span></div>
           </div>
           <div class="card-foot">
@@ -206,7 +204,7 @@
       "EBL-PLACAS-2026": { nombre: "Manual-Ingenieria-Reparacion-Placas-Madre.rar", url: "https://google.com" },
       "EBL-DIAG-2026": { nombre: "El-Arte-Del-Diagnostico-Electronico.rar", url: "https://google.com" },
       "EBL-CERO-2026": { nombre: "Electronica-Desde-Cero-Curso-Completo.rar", url: "https://google.com" }
-        };
+    };
 
     function filtrar() {
       const q = document.getElementById("buscador").value.toLowerCase();
@@ -227,7 +225,7 @@
       document.getElementById("c-nombre").innerText = n;
       document.getElementById("c-precio").innerText = p;
       const mensaje = 'Hola Manuel, quiero adquirir "' + n + '" (' + p + ') y recibir mi código de descarga y contraseña WinRAR.';
-      document.getElementById("btn-wa").href = "https://wa.me" + encodeURIComponent(mensaje);
+      document.getElementById("btn-wa").href = "https://whatsapp.com" + encodeURIComponent(mensaje);
       abrirModal("modal-compra");
     }
 
@@ -251,6 +249,7 @@
   </script>
 </body>
 </html>
+
 
 
 
