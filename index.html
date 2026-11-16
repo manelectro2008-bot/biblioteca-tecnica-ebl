@@ -223,13 +223,16 @@
       document.querySelectorAll(".modal").forEach(m => m.classList.remove("activo"));
     }
 
-    function comprar(n, p) {
+       function comprar(n, p) {
       document.getElementById("c-nombre").innerText = n;
       document.getElementById("c-precio").innerText = p;
       const mensaje = 'Hola Manuel, quiero adquirir "' + n + '" (' + p + ') y recibir mi código de descarga y contraseña WinRAR.';
-      urlWhatsAppActual = "https://whatsapp.com" + encodeURIComponent(mensaje);
+      const telefono = "56999263949";
+      const base = "https://" + "api.whatsapp.com" + "/send?phone=";
+      urlWhatsAppActual = base + telefono + "&text=" + encodeURIComponent(mensaje);
       abrirModal("modal-compra");
     }
+
 
     function irWhatsApp() {
       if (urlWhatsAppActual) {
