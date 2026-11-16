@@ -198,12 +198,34 @@
   </div>
 
   <script>
+        const DRIVE_BASE = "https://" + "drive.google.com" + "/file/d/";
+
     const CODIGOS = {
-      "EBL-PACK-2026": { nombre: "Biblioteca del Técnico Especialista (Pack 4 en 1).rar", url: "https://google.com" },
-      "EBL-SMARTTV-2026": { nombre: "Tecnico-Reparacion-Smart-TV-2026.rar", url: "https://google.com" },
-      "EBL-PLACAS-2026": { nombre: "Manual-Ingenieria-Reparacion-Placas-Madre.rar", url: "https://google.com" },
-      "EBL-DIAG-2026": { nombre: "El-Arte-Del-Diagnostico-Electronico.rar", url: "https://google.com" },
-      "EBL-CERO-2026": { nombre: "Electronica-Desde-Cero-Curso-Completo.rar", url: "https://google.com" }
+      "EBL-PACK-2026": {
+        nombre: "Combo Completo 4 en 1 (Edición 2026).rar",
+        pass: "EBLC-BXPC-JURT",
+        id: "1VjIT7O0qYd6pILAmbgJNeJ4oweB_DEoy"
+      },
+      "EBL-SMARTTV-2026": {
+        nombre: "Tecnico-Reparacion-Smart-TV-2026.rar",
+        pass: "EBL4-MCH5-NB5E",
+        id: "1d7p48THzKdeyuWga_SgsnOTqbZsIpUFR"
+      },
+      "EBL-PLACAS-2026": {
+        nombre: "Manual-Ingenieria-Reparacion-Placas-Madre.rar",
+        pass: "EBL2-B6ZE-V6ZU",
+        id: "1Jt5x_YJ6_5NjGAUBKg5Lkm-Y-GwpDSQn"
+      },
+      "EBL-DIAG-2026": {
+        nombre: "El-Arte-Del-Diagnostico-Electronico.rar",
+        pass: "EBL3-V6QS-KYKX",
+        id: "1k3WRU1bqg4UFIq6BxpNabG2ZQ20rEOYj"
+      },
+      "EBL-CERO-2026": {
+        nombre: "Electronica-Desde-Cero.rar",
+        pass: "EBL1-WUD2-JQTD",
+        id: "1xcjMqWUiW2dSlx9vYGgqOhQA4MsWVEYf"
+      }
     };
 
     let urlWhatsAppActual = "";
@@ -223,7 +245,7 @@
       document.querySelectorAll(".modal").forEach(m => m.classList.remove("activo"));
     }
 
-       function comprar(n, p) {
+    function comprar(n, p) {
       document.getElementById("c-nombre").innerText = n;
       document.getElementById("c-precio").innerText = p;
       const mensaje = 'Hola Manuel, quiero adquirir "' + n + '" (' + p + ') y recibir mi código de descarga y contraseña WinRAR.';
@@ -232,7 +254,6 @@
       urlWhatsAppActual = base + telefono + "&text=" + encodeURIComponent(mensaje);
       abrirModal("modal-compra");
     }
-
 
     function irWhatsApp() {
       if (urlWhatsAppActual) {
@@ -246,10 +267,13 @@
       const a = CODIGOS[c];
       m.style.display = "block";
       if (a) {
+        const linkFinal = DRIVE_BASE + a.id + "/view?usp=sharing";
         m.style.background = "rgba(34,211,238,.12)";
         m.style.border = "1px solid #22d3ee";
         m.style.color = "#e0f2fe";
-        m.innerHTML = '✓ Código verificado: <strong>' + a.nombre + '</strong><br><br><a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" style="width:100%">Descargar desde Google Drive</a>';
+        m.innerHTML = '✓ Código verificado: <strong>' + a.nombre + '</strong><br>' +
+          'Contraseña para descomprimir: <strong style="color:#4ee88a">' + a.pass + '</strong><br><br>' +
+          '<a href="' + linkFinal + '" target="_blank" rel="noopener noreferrer" class="btn btn-cyan" style="width:100%">Descargar desde Google Drive</a>';
       } else {
         m.style.background = "rgba(239,68,68,.15)";
         m.style.border = "1px solid #ef4444";
@@ -260,7 +284,3 @@
   </script>
 </body>
 </html>
-
-
-
-
