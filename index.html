@@ -193,7 +193,7 @@
         <div id="c-precio" style="font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:#22d3ee;margin-top:4px"></div>
       </div>
       <p style="font-size:.88rem;color:#a9b8cf;margin-bottom:16px">Escríbeme por WhatsApp para coordinar el pago y enviarte tu código de descarga más la contraseña WinRAR.</p>
-      <a id="btn-wa" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-wa">Comprar por WhatsApp (+56 9 9926 3949)</a>
+      <button type="button" onclick="irWhatsApp()" class="btn btn-wa">Comprar por WhatsApp (+56 9 9926 3949)</button>
     </div>
   </div>
 
@@ -205,6 +205,8 @@
       "EBL-DIAG-2026": { nombre: "El-Arte-Del-Diagnostico-Electronico.rar", url: "https://google.com" },
       "EBL-CERO-2026": { nombre: "Electronica-Desde-Cero-Curso-Completo.rar", url: "https://google.com" }
     };
+
+    let urlWhatsAppActual = "";
 
     function filtrar() {
       const q = document.getElementById("buscador").value.toLowerCase();
@@ -225,8 +227,14 @@
       document.getElementById("c-nombre").innerText = n;
       document.getElementById("c-precio").innerText = p;
       const mensaje = 'Hola Manuel, quiero adquirir "' + n + '" (' + p + ') y recibir mi código de descarga y contraseña WinRAR.';
-      document.getElementById("btn-wa").href = "https://whatsapp.com" + encodeURIComponent(mensaje);
+      urlWhatsAppActual = "https://whatsapp.com" + encodeURIComponent(mensaje);
       abrirModal("modal-compra");
+    }
+
+    function irWhatsApp() {
+      if (urlWhatsAppActual) {
+        window.location.href = urlWhatsAppActual;
+      }
     }
 
     function validar() {
